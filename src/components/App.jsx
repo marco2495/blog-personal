@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from '../pages/Home';
-import PostDetail from './pages/PostDetail';
+import PostDetail from '../pages/PostDetails';
 import NewPostPage from '../pages/NewPostPage';
-import './App.css';
+import '../App.css';
 
 function App() {
   const [posts, setPosts] = useState([
