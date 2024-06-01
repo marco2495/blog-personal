@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from '../pages/Home';
 import PostDetail from '../pages/PostDetails';
 import NewPostPage from '../pages/NewPostPage';
@@ -22,11 +22,11 @@ function App() {
             <Link to="/new-post">New Post</Link>
           </nav>
         </header>
-        <Switch>
-          <Route exact path="/" component={() => <Home posts={posts} />} />
-          <Route path="/posts/:id" component={() => <PostDetail posts={posts} />} />
-          <Route path="/new-post" component={() => <NewPostPage setPosts={setPosts} posts={posts} />} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home posts={posts} />} />
+          <Route path="/posts/:id" element={<PostDetail posts={posts} />} />
+          <Route path="/new-post" element={<NewPostPage setPosts={setPosts} posts={posts} />} />
+        </Routes>
       </div>
     </Router>
   );
