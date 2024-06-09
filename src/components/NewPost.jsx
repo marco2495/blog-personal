@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function NewPost({ addPost }) {
     const [title, setTitle] = useState('');
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState(new Date().toISOString().slice(0, 16));
     const [content, setContent] = useState('');
 
     const handleSubmit = (e) => {
@@ -15,7 +15,7 @@ function NewPost({ addPost }) {
         };
         addPost(newPost);
         setTitle('');
-        setDate('');
+        setDate(new Date().toISOString().slice(0, 16)); // Restablecer la fecha a la actual después de enviar el formulario
         setContent('');
     };
 
@@ -29,10 +29,9 @@ function NewPost({ addPost }) {
                 required
             />
             <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
+                type="datetime-local" // Cambiar a "datetime-local" para incluir la hora
+                value={Date.now()}
+                hidden
             />
             <textarea
                 placeholder="Content"
